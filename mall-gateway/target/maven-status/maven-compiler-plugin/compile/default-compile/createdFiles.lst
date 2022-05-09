@@ -1,0 +1,3 @@
+com/msb/mall/gateway/config/MyFilter.class
+com/msb/mall/gateway/config/MallCorsConfiguration.class
+com/msb/mall/gateway/MallGatewayApplication.class
