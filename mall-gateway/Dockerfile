@@ -1,8 +1,5 @@
-FROM frolvlad/alpine-oraclejdk8:slim
-MAINTAINER jilongliang@sina.com
-RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-RUN mkdir -p /home/devsoft/mall-gateway
-WORKDIR /home/devsoft/mall-gateway
+FROM openjdk:8-jdk-alpine
+ARG JAR_FILE
+COPY ${JAR_FILE} mall-gateway.jar
 EXPOSE 8070
-ADD ./target/mall-gateway.jar ./
-CMD java ${JAVA_OPTS_DEFAULT} -Djava.security.egd=file:/dev/./urandom -jar mall-gateway.jar
+ENTRYPOINT ["java","-jar","/mall-gateway.jar"]
